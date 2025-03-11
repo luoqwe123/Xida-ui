@@ -1,0 +1,86 @@
+name: xida-ui
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+      branches: [main]  
+
+  workflow_dispatch:      ## 允许手动触发工作流。   用途：通过 GitHub UI（Actions 标签）点击 “Run workflow” 按钮运行，适合调试或特殊情况。
+
+jobs:                     ## 定义工作流中的任务（jobs），每个 job 是一个独立运行的单元。
+  test: 
+    name: Run Lint and Test
+    runs-on: ubuntu-latest   ## 指定运行环境为最新的 Ubuntu 虚拟机
+
+    steps:
+      - name: Checkout repo     ## 检出仓库代码
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM      ## 安装指定版本的 pnpm（10.2.0）
+        uses: pnpm/action-setup@v2.4.1
+        with:
+            version: 10.2.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+              node-version: 20.x
+              cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile    ##  精确版本的依赖，保证一致性。
+
+      - name: Run tests
+        run: pnpm  test
+
+  build:
+    name: Build docs
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.4.1
+        with:
+            version: 10.2.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+              node-version: 20.x
+              cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build component
+        run: pnpm  build
+
+      - name: Build docs
+        run: pnpm  docs:build
+
+      - name: Upload docs
+        uses: actions/upload-artifact@v4   ## 上传构建产物
+        with:
+          name: docs  ## artifact 名称，用于后续 job 引用。
+          path: ./packages/docs/.vitepress/dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download docs
+        uses: actions/download-artifact@v4   ## 下载名为 docs 的 artifact
+        with:
+          name: docs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4   ## 部署到 GitHub Pages。
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: .   ## 部署当前目录下的所有文件

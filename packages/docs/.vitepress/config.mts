@@ -4,8 +4,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "My Awesome Project",
   description: "风风组件库",
-  base: "/xida-ui/",  // 保持子路径
-  outDir: "../dist/xida-ui",  // 调整输出目录
+  base: "/",  // 保持子路径
+  
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

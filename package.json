@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "pnpm --filter @xida-ui/play dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:dev": "pnpm --filter @toy-element/docs dev",
-    "docs:build": "pnpm --filter @toy-element/docs build",
+    "docs:dev": "pnpm --filter @xida-ui/docs dev",
+    "docs:build": "pnpm --filter @xida-ui/docs build",
     "build": "run-s build-hooks build-comp build-utils"
   },
   "keywords": [],

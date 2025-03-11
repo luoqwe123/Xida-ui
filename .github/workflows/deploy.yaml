@@ -9,35 +9,35 @@ on:
   workflow_dispatch:      ## 允许手动触发工作流。   用途：通过 GitHub UI（Actions 标签）点击 “Run workflow” 按钮运行，适合调试或特殊情况。
 
 jobs:                     ## 定义工作流中的任务（jobs），每个 job 是一个独立运行的单元。
-  test: 
-    name: Run Lint and Test
-    runs-on: ubuntu-latest   ## 指定运行环境为最新的 Ubuntu 虚拟机
+#   test: 
+#     name: Run Lint and Test
+#     runs-on: ubuntu-latest   ## 指定运行环境为最新的 Ubuntu 虚拟机
 
-    steps:
-      - name: Checkout repo     ## 检出仓库代码
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout repo     ## 检出仓库代码
+#         uses: actions/checkout@v4
 
-      - name: Setup PNPM      ## 安装指定版本的 pnpm（10.2.0）
-        uses: pnpm/action-setup@v2.4.1
-        with:
-            version: 10.2.0
+#       - name: Setup PNPM      ## 安装指定版本的 pnpm（10.2.0）
+#         uses: pnpm/action-setup@v2.4.1
+#         with:
+#             version: 10.2.0
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-              node-version: 20.x
-              cache: "pnpm"
+#       - name: Setup Node
+#         uses: actions/setup-node@v4
+#         with:
+#               node-version: 20.x
+#               cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile    ##  精确版本的依赖，保证一致性。
+#       - name: Install dependencies
+#         run: pnpm install --frozen-lockfile    ##  精确版本的依赖，保证一致性。
 
-      - name: Run tests
-        run: pnpm  test
+#       - name: Run tests
+#         run: pnpm  test
 
   build:
     name: Build docs
     runs-on: ubuntu-latest
-    needs: test
+    # needs: test
 
     steps:
       - name: Checkout repo

@@ -51,7 +51,7 @@ jobs:                     ## 定义工作流中的任务（jobs），每个 job 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-              node-version: 20.x
+              node-version: 20.18.0 
               cache: "pnpm"
 
       - name: Install dependencies
@@ -79,10 +79,10 @@ jobs:                     ## 定义工作流中的任务（jobs），每个 job 
         with:
           name: docs  
                            
-      - name: List directory contents
-        run: |
-            echo "Listing files in current directory:"
-            ls -R .  # 递归打印 dist 目录内容
+      # - name: List directory contents
+      #   run: |
+      #       echo "Listing files in current directory:"
+      #       ls -R .  # 递归打印 dist 目录内容
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4   ## 部署到 GitHub Pages。

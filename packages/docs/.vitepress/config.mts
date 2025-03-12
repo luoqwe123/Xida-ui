@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "My Awesome Project",
   description: "风风组件库",
-  base: "/",  // 保持子路径
+  base: "/Xida-ui/",  // 保持子路径
   
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

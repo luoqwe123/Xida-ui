@@ -1,15 +1,26 @@
 <template>
-    <div class="App-container">
-        <FfButton></FfButton>
-    </div>
+  <XidaButton size="small" type="primary">你好</XidaButton>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 
-import { FfButton } from 'xida-ui';
+import { XidaButton } from 'xida-ui';
 
 </script>
 
 <style scoped>
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
 
-</style >
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
+}
+</style>

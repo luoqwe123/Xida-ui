@@ -1,11 +1,13 @@
-@import "./reset.css" ;
+@import "./reset.css";
 
+
+/* 定义颜色映射 */
+/* @define xida-colors primary #409eff, success #67c23a, warning #e6a23c, danger #f56c6c, info #909399; */
 
 :root {
-
+  /* colors */
   --xida-color-white: #ffffff;
   --xida-color-black: #000000;
-  --xidalors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
   --xida-bg-color: #ffffff;
   --xida-bg-color-page: #f2f3f5;
   --xida-bg-color-overlay: #ffffff;
@@ -28,13 +30,69 @@
   --xida-fill-color-darker: #e6e8eb;
   --xida-fill-color-blank: #ffffff;
 
-  @each $val, $color in var(--colors) {
-    --xida-color-$(val): $(color);
+  /* 动态生成颜色变量 */
+  /* @each $val, $color in xida-colors {
+    --xida-color-$val: $color;
     @for $i from 3 to 9 {
-      --xida-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
+      --xida-color-$val-light-$i: mix(#fff, $color, 0.$i);
     }
-    --xida-color-$(val)-dark-2: mix(#000, $(color), 0.2);
-  }
+    --xida-color-$val-dark-2: mix(#000, $color, 0.2);
+  } */
+
+  /* primary */
+  --xida-color-primary: #409eff;
+  --xida-color-primary-light-3: mix(#fff, #409eff, 0.3);
+  --xida-color-primary-light-4: mix(#fff, #409eff, 0.4);
+  --xida-color-primary-light-5: mix(#fff, #409eff, 0.5);
+  --xida-color-primary-light-6: mix(#fff, #409eff, 0.6);
+  --xida-color-primary-light-7: mix(#fff, #409eff, 0.7);
+  --xida-color-primary-light-8: mix(#fff, #409eff, 0.8);
+  --xida-color-primary-light-9: mix(#fff, #409eff, 0.9);
+  --xida-color-primary-dark-2: mix(#000, #409eff, 0.2);
+
+  /* success */
+  --xida-color-success: #67c23a;
+  --xida-color-success-light-3: mix(#fff, #67c23a, 0.3);
+  --xida-color-success-light-4: mix(#fff, #67c23a, 0.4);
+  --xida-color-success-light-5: mix(#fff, #67c23a, 0.5);
+  --xida-color-success-light-6: mix(#fff, #67c23a, 0.6);
+  --xida-color-success-light-7: mix(#fff, #67c23a, 0.7);
+  --xida-color-success-light-8: mix(#fff, #67c23a, 0.8);
+  --xida-color-success-light-9: mix(#fff, #67c23a, 0.9);
+  --xida-color-success-dark-2: mix(#000, #67c23a, 0.2);
+
+  /* warning */
+  --xida-color-warning: #e6a23c;
+  --xida-color-warning-light-3: mix(#fff, #e6a23c, 0.3);
+  --xida-color-warning-light-4: mix(#fff, #e6a23c, 0.4);
+  --xida-color-warning-light-5: mix(#fff, #e6a23c, 0.5);
+  --xida-color-warning-light-6: mix(#fff, #e6a23c, 0.6);
+  --xida-color-warning-light-7: mix(#fff, #e6a23c, 0.7);
+  --xida-color-warning-light-8: mix(#fff, #e6a23c, 0.8);
+  --xida-color-warning-light-9: mix(#fff, #e6a23c, 0.9);
+  --xida-color-warning-dark-2: mix(#000, #e6a23c, 0.2);
+
+  /* danger */
+  --xida-color-danger: #f56c6c;
+  --xida-color-danger-light-3: mix(#fff, #f56c6c, 0.3);
+  --xida-color-danger-light-4: mix(#fff, #f56c6c, 0.4);
+  --xida-color-danger-light-5: mix(#fff, #f56c6c, 0.5);
+  --xida-color-danger-light-6: mix(#fff, #f56c6c, 0.6);
+  --xida-color-danger-light-7: mix(#fff, #f56c6c, 0.7);
+  --xida-color-danger-light-8: mix(#fff, #f56c6c, 0.8);
+  --xida-color-danger-light-9: mix(#fff, #f56c6c, 0.9);
+  --xida-color-danger-dark-2: mix(#000, #f56c6c, 0.2);
+
+  /* info */
+  --xida-color-info: #909399;
+  --xida-color-info-light-3: mix(#fff, #909399, 0.3);
+  --xida-color-info-light-4: mix(#fff, #909399, 0.4);
+  --xida-color-info-light-5: mix(#fff, #909399, 0.5);
+  --xida-color-info-light-6: mix(#fff, #909399, 0.6);
+  --xida-color-info-light-7: mix(#fff, #909399, 0.7);
+  --xida-color-info-light-8: mix(#fff, #909399, 0.8);
+  --xida-color-info-light-9: mix(#fff, #909399, 0.9);
+  --xida-color-info-dark-2: mix(#000, #909399, 0.2);
 
   /* border */
   --xida-border-width: 1px;
@@ -46,7 +104,7 @@
   --xida-border-radius-round: 20px;
   --xida-border-radius-circle: 100%;
 
-  /*font*/
+  /* font */
   --xida-font-size-extra-large: 20px;
   --xida-font-size-large: 18px;
   --xida-font-size-medium: 16px;
@@ -57,12 +115,12 @@
     'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
   --xida-font-weight-primary: 500;
 
-  /*disabled*/
+  /* disabled */
   --xida-disabled-bg-color: var(--xida-fill-color-light);
   --xida-disabled-text-color: var(--xida-text-color-placeholder);
   --xida-disabled-border-color: var(--xida-border-color-light);
 
-  /*animation*/
+  /* animation */
   --xida-transition-duration: 0.4s;
   --xida-transition-duration-fast: 0.2s;
 }

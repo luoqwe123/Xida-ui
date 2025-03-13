@@ -58,6 +58,6 @@ const handleClickThrottle = throttle(handleClick,props.throttleDuration)
 </script>
 
 <style scoped>
-
+@import "./style.css";
 
 </style>

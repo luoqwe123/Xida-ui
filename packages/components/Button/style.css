@@ -1,26 +1,26 @@
-.er-button-group {
-  --er-button-group-border-color: var(--er-border-color-lighter);
+.xida-button-group {
+  --xida-button-group-border-color: var(--xida-border-color-lighter);
 }
 
-.er-button {
-  --xd-button-font-weight: var(--er-font-weight-primary);
-  --xd-button-border-color: var(--er-border-color);
-  --xd-button-bg-color: var(--er-fill-color-blank);
-  --xd-button-text-color: var(--er-text-color-regular);
-  --xd-button-disabled-text-color: var(--er-disabled-text-color);
-  --xd-button-disabled-bg-color: var(--er-fill-color-blank);
-  --xd-button-disabled-border-color: var(--er-border-color-light);
-  --xd-button-hover-text-color: var(--er-color-primary);
-  --xd-button-hover-bg-color: var(--er-color-primary-light-9);
-  --xd-button-hover-border-color: var(--er-color-primary-light-7);
-  --xd-button-active-text-color: var(--er-button-hover-text-color);
-  --xd-button-active-border-color: var(--er-color-primary);
-  --xd-button-active-bg-color: var(--er-button-hover-bg-color);
-  --xd-button-outline-color: var(--er-color-primary-light-5);
-  --xd-button-active-color: var(--er-text-color-primary);
+.xida-button {
+  --xida-button-font-weight: var(--xida-font-weight-primary);
+  --xida-button-border-color: var(--xida-border-color);
+  --xida-button-bg-color: var(--xida-fill-color-blank);
+  --xida-button-text-color: var(--xida-text-color-regular);
+  --xida-button-disabled-text-color: var(--xida-disabled-text-color);
+  --xida-button-disabled-bg-color: var(--xida-fill-color-blank);
+  --xida-button-disabled-border-color: var(--xida-border-color-light);
+  --xida-button-hover-text-color: var(--xida-color-primary);
+  --xida-button-hover-bg-color: var(--xida-color-primary-light-9);
+  --xida-button-hover-border-color: var(--xida-color-primary-light-7);
+  --xida-button-active-text-color: var(--xida-button-hover-text-color);
+  --xida-button-active-border-color: var(--xida-color-primary);
+  --xida-button-active-bg-color: var(--xida-button-hover-bg-color);
+  --xida-button-outline-color: var(--xida-color-primary-light-5);
+  --xida-button-active-color: var(--xida-text-color-primary);
 }
 
-.er-button {
+.xida-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -28,22 +28,22 @@
   height: 32px;
   white-space: nowrap;
   cursor: pointer;
-  color: var(--er-button-text-color);
+  color: var(--xida-button-text-color);
   text-align: center;
   box-sizing: border-box;
   outline: none;
   transition: 0.1s;
-  font-weight: var(--er-button-font-weight);
+  font-weight: var(--xida-button-font-weight);
   -webkit-user-select: none;
   user-select: none;
   vertical-align: middle;
   -webkit-appearance: none;
-  background-color: var(--er-button-bg-color);
+  background-color: var(--xida-button-bg-color);
   border: var(--er-border);
-  border-color: var(--er-button-border-color);
+  border-color: var(--xida-button-border-color);
   padding: 8px 15px;
-  font-size: var(--er-font-size-base);
-  border-radius: var(--er-border-radius-base);
+  font-size: var(--xida-font-size-base);
+  border-radius: var(--xida-border-radius-base);
 
   &+& {
     margin-left: 12px;
@@ -51,29 +51,29 @@
 
   &:hover,
   &:focus {
-    color: var(--er-button-hover-text-color);
-    border-color: var(--er-button-hover-border-color);
-    background-color: var(--er-button-hover-bg-color);
+    color: var(--xida-button-hover-text-color);
+    border-color: var(--xida-button-hover-border-color);
+    background-color: var(--xida-button-hover-bg-color);
     outline: none;
   }
 
   &:active {
-    color: var(--er-button-active-text-color);
-    border-color: var(--er-button-active-border-color);
-    background-color: var(--er-button-active-bg-color);
+    color: var(--xida-button-active-text-color);
+    border-color: var(--xida-button-active-border-color);
+    background-color: var(--xida-button-active-bg-color);
     outline: none;
   }
 
   /*plain*/
   &.is-plain {
-    --xd-button-hover-text-color: var(--er-color-primary);
-    --xd-button-hover-bg-color: var(--er-fill-color-blank);
-    --xd-button-hover-border-color: var(--er-color-primary);
+    --xida-button-hover-text-color: var(--xida-color-primary);
+    --xida-button-hover-bg-color: var(--xida-fill-color-blank);
+    --xida-button-hover-border-color: var(--xida-color-primary);
   }
 
   /*round*/
   &.is-round {
-    border-radius: var(--er-border-radius-round);
+    border-radius: var(--xida-border-radius-round);
   }
 
   /*circle*/
@@ -90,11 +90,11 @@
   &[disabled],
   &[disabled]:hover,
   &[disabled]:focus {
-    color: var(--er-button-disabled-text-color);
+    color: var(--xida-button-disabled-text-color);
     cursor: not-allowed;
     background-image: none;
-    background-color: var(--er-button-disabled-bg-color);
-    border-color: var(--er-button-disabled-border-color);
+    background-color: var(--xida-button-disabled-bg-color);
+    border-color: var(--xida-button-disabled-border-color);
   }
 
   [class*='er-icon'] {
@@ -103,44 +103,192 @@
   }
 }
 
-@each $val in $button-types {
-  .er-button--#{$val} {
-    --xd-button-text-color: var(--er-color-white);
-    --xd-button-bg-color: var(--er-color-#{$val});
-    --xd-button-border-color: var(--er-color-#{$val});
-    --xd-button-outline-color: var(--er-color-#{$val}-light-5);
-    --xd-button-active-color: var(--er-color-#{$val}-dark-2);
-    --xd-button-hover-text-color: var(--er-color-white);
-    --xd-button-hover-bg-color: var(--er-color-#{$val}-light-3);
-    --xd-button-hover-border-color: var(--er-color-#{$val}-light-3);
-    --xd-button-active-bg-color: var(--er-color-#{$val}-dark-2);
-    --xd-button-active-border-color: var(--er-color-#{$val}-dark-2);
-    --xd-button-disabled-text-color: var(--er-color-white);
-    --xd-button-disabled-bg-color: var(--er-color-#{$val}-light-5);
-    --xd-button-disabled-border-color: var(--er-color-#{$val}-light-5);
+/* 定义按钮类型列表 */
+/* @define button-types primary, success, warning, info, danger;
+
+@each $val in button-types {
+  .xida-button--$val {
+    --xida-button-text-color: var(--xida-color-white);
+    --xida-button-bg-color: var(--xida-color-$val);
+    --xida-button-border-color: var(--xida-color-$val);
+    --xida-button-outline-color: var(--xida-color-$val-light-5);
+    --xida-button-active-color: var(--xida-color-$val-dark-2);
+    --xida-button-hover-text-color: var(--xida-color-white);
+    --xida-button-hover-bg-color: var(--xida-color-$val-light-3);
+    --xida-button-hover-border-color: var(--xida-color-$val-light-3);
+    --xida-button-active-bg-color: var(--xida-color-$val-dark-2);
+    --xida-button-active-border-color: var(--xida-color-$val-dark-2);
+    --xida-button-disabled-text-color: var(--xida-color-white);
+    --xida-button-disabled-bg-color: var(--xida-color-$val-light-5);
+    --xida-button-disabled-border-color: var(--xida-color-$val-light-5);
   }
 
-  .er-button--#{$val}.is-plain {
-    --xd-button-text-color: var(--er-color-#{$val});
-    --xd-button-bg-color: var(--er-color-#{$val}-light-9);
-    --xd-button-border-color: var(--er-color-#{$val}-light-5);
-    --xd-button-hover-text-color: var(--er-color-white);
-    --xd-button-hover-bg-color: var(--er-color-#{$val});
-    --xd-button-hover-border-color: var(--er-color-#{$val});
-    --xd-button-active-text-color: var(--er-color-white);
+  .xida-button--$val.is-plain {
+    --xida-button-text-color: var(--xida-color-$val);
+    --xida-button-bg-color: var(--xida-color-$val-light-9);
+    --xida-button-border-color: var(--xida-color-$val-light-5);
+    --xida-button-hover-text-color: var(--xida-color-white);
+    --xida-button-hover-bg-color: var(--xida-color-$val);
+    --xida-button-hover-border-color: var(--xida-color-$val);
+    --xida-button-active-text-color: var(--xida-color-white);
 
-    --xd-button-disabled-text-color: var(--er-color-#{$val}-light-5);
-    --xd-button-disabled-bg-color: var(--er-color-#{$val}-light-9);
-    --xd-button-disabled-border-color: var(--er-color-#{$val}-light-8);
+    --xida-button-disabled-text-color: var(--xida-color-$val-light-5);
+    --xida-button-disabled-bg-color: var(--xida-color-$val-light-9);
+    --xida-button-disabled-border-color: var(--xida-color-$val-light-8);
   }
+} */
+
+.xida-button--primary {
+  --xida-button-text-color: var(--xida-color-white);
+  --xida-button-bg-color: var(--xida-color-primary);
+  --xida-button-border-color: var(--xida-color-primary);
+  --xida-button-outline-color: var(--xida-color-primary-light-5);
+  --xida-button-active-color: var(--xida-color-primary-dark-2);
+  --xida-button-hover-text-color: var(--xida-color-white);
+  --xida-button-hover-bg-color: var(--xida-color-primary-light-3);
+  --xida-button-hover-border-color: var(--xida-color-primary-light-3);
+  --xida-button-active-bg-color: var(--xida-color-primary-dark-2);
+  --xida-button-active-border-color: var(--xida-color-primary-dark-2);
+  --xida-button-disabled-text-color: var(--xida-color-white);
+  --xida-button-disabled-bg-color: var(--xida-color-primary-light-5);
+  --xida-button-disabled-border-color: var(--xida-color-primary-light-5);
 }
 
-.er-button--large {
-  --er-button-size: 40px;
-  height: var(--er-button-size);
+.xida-button--primary.is-plain {
+  --xida-button-text-color: var(--xida-color-primary);
+  --xida-button-bg-color: var(--xida-color-primary-light-9);
+  --xida-button-border-color: var(--xida-color-primary-light-5);
+  --xida-button-hover-text-color: var(--xida-color-white);
+  --xida-button-hover-bg-color: var(--xida-color-primary);
+  --xida-button-hover-border-color: var(--xida-color-primary);
+  --xida-button-active-text-color: var(--xida-color-white);
+  --xida-button-disabled-text-color: var(--xida-color-primary-light-5);
+  --xida-button-disabled-bg-color: var(--xida-color-primary-light-9);
+  --xida-button-disabled-border-color: var(--xida-color-primary-light-8);
+}
+
+.xida-button--success {
+  --xida-button-text-color: var(--xida-color-white);
+  --xida-button-bg-color: var(--xida-color-success);
+  --xida-button-border-color: var(--xida-color-success);
+  --xida-button-outline-color: var(--xida-color-success-light-5);
+  --xida-button-active-color: var(--xida-color-success-dark-2);
+  --xida-button-hover-text-color: var(--xida-color-white);
+  --xida-button-hover-bg-color: var(--xida-color-success-light-3);
+  --xida-button-hover-border-color: var(--xida-color-success-light-3);
+  --xida-button-active-bg-color: var(--xida-color-success-dark-2);
+  --xida-button-active-border-color: var(--xida-color-success-dark-2);
+  --xida-button-disabled-text-color: var(--xida-color-white);
+  --xida-button-disabled-bg-color: var(--xida-color-success-light-5);
+  --xida-button-disabled-border-color: var(--xida-color-success-light-5);
+}
+
+.xida-button--success.is-plain {
+  --xida-button-text-color: var(--xida-color-success);
+  --xida-button-bg-color: var(--xida-color-success-light-9);
+  --xida-button-border-color: var(--xida-color-success-light-5);
+  --xida-button-hover-text-color: var(--xida-color-white);
+  --xida-button-hover-bg-color: var(--xida-color-success);
+  --xida-button-hover-border-color: var(--xida-color-success);
+  --xida-button-active-text-color: var(--xida-color-white);
+  --xida-button-disabled-text-color: var(--xida-color-success-light-5);
+  --xida-button-disabled-bg-color: var(--xida-color-success-light-9);
+  --xida-button-disabled-border-color: var(--xida-color-success-light-8);
+}
+
+.xida-button--warning {
+  --xida-button-text-color: var(--xida-color-white);
+  --xida-button-bg-color: var(--xida-color-warning);
+  --xida-button-border-color: var(--xida-color-warning);
+  --xida-button-outline-color: var(--xida-color-warning-light-5);
+  --xida-button-active-color: var(--xida-color-warning-dark-2);
+  --xida-button-hover-text-color: var(--xida-color-white);
+  --xida-button-hover-bg-color: var(--xida-color-warning-light-3);
+  --xida-button-hover-border-color: var(--xida-color-warning-light-3);
+  --xida-button-active-bg-color: var(--xida-color-warning-dark-2);
+  --xida-button-active-border-color: var(--xida-color-warning-dark-2);
+  --xida-button-disabled-text-color: var(--xida-color-white);
+  --xida-button-disabled-bg-color: var(--xida-color-warning-light-5);
+  --xida-button-disabled-border-color: var(--xida-color-warning-light-5);
+}
+
+.xida-button--warning.is-plain {
+  --xida-button-text-color: var(--xida-color-warning);
+  --xida-button-bg-color: var(--xida-color-warning-light-9);
+  --xida-button-border-color: var(--xida-color-warning-light-5);
+  --xida-button-hover-text-color: var(--xida-color-white);
+  --xida-button-hover-bg-color: var(--xida-color-warning);
+  --xida-button-hover-border-color: var(--xida-color-warning);
+  --xida-button-active-text-color: var(--xida-color-white);
+  --xida-button-disabled-text-color: var(--xida-color-warning-light-5);
+  --xida-button-disabled-bg-color: var(--xida-color-warning-light-9);
+  --xida-button-disabled-border-color: var(--xida-color-warning-light-8);
+}
+
+.xida-button--info {
+  --xida-button-text-color: var(--xida-color-white);
+  --xida-button-bg-color: var(--xida-color-info);
+  --xida-button-border-color: var(--xida-color-info);
+  --xida-button-outline-color: var(--xida-color-info-light-5);
+  --xida-button-active-color: var(--xida-color-info-dark-2);
+  --xida-button-hover-text-color: var(--xida-color-white);
+  --xida-button-hover-bg-color: var(--xida-color-info-light-3);
+  --xida-button-hover-border-color: var(--xida-color-info-light-3);
+  --xida-button-active-bg-color: var(--xida-color-info-dark-2);
+  --xida-button-active-border-color: var(--xida-color-info-dark-2);
+  --xida-button-disabled-text-color: var(--xida-color-white);
+  --xida-button-disabled-bg-color: var(--xida-color-info-light-5);
+  --xida-button-disabled-border-color: var(--xida-color-info-light-5);
+}
+
+.xida-button--info.is-plain {
+  --xida-button-text-color: var(--xida-color-info);
+  --xida-button-bg-color: var(--xida-color-info-light-9);
+  --xida-button-border-color: var(--xida-color-info-light-5);
+  --xida-button-hover-text-color: var(--xida-color-white);
+  --xida-button-hover-bg-color: var(--xida-color-info);
+  --xida-button-hover-border-color: var(--xida-color-info);
+  --xida-button-active-text-color: var(--xida-color-white);
+  --xida-button-disabled-text-color: var(--xida-color-info-light-5);
+  --xida-button-disabled-bg-color: var(--xida-color-info-light-9);
+  --xida-button-disabled-border-color: var(--xida-color-info-light-8);
+}
+
+.xida-button--danger {
+  --xida-button-text-color: var(--xida-color-white);
+  --xida-button-bg-color: var(--xida-color-danger);
+  --xida-button-border-color: var(--xida-color-danger);
+  --xida-button-outline-color: var(--xida-color-danger-light-5);
+  --xida-button-active-color: var(--xida-color-danger-dark-2);
+  --xida-button-hover-text-color: var(--xida-color-white);
+  --xida-button-hover-bg-color: var(--xida-color-danger-light-3);
+  --xida-button-hover-border-color: var(--xida-color-danger-light-3);
+  --xida-button-active-bg-color: var(--xida-color-danger-dark-2);
+  --xida-button-active-border-color: var(--xida-color-danger-dark-2);
+  --xida-button-disabled-text-color: var(--xida-color-white);
+  --xida-button-disabled-bg-color: var(--xida-color-danger-light-5);
+  --xida-button-disabled-border-color: var(--xida-color-danger-light-5);
+}
+
+.xida-button--danger.is-plain {
+  --xida-button-text-color: var(--xida-color-danger);
+  --xida-button-bg-color: var(--xida-color-danger-light-9);
+  --xida-button-border-color: var(--xida-color-danger-light-5);
+  --xida-button-hover-text-color: var(--xida-color-white);
+  --xida-button-hover-bg-color: var(--xida-color-danger);
+  --xida-button-hover-border-color: var(--xida-color-danger);
+  --xida-button-active-text-color: var(--xida-color-white);
+  --xida-button-disabled-text-color: var(--xida-color-danger-light-5);
+  --xida-button-disabled-bg-color: var(--xida-color-danger-light-9);
+  --xida-button-disabled-border-color: var(--xida-color-danger-light-8);
+}
+
+.xida-button--large {
+  --xida-button-size: 40px;
+  height: var(--xida-button-size);
   padding: 12px 19px;
-  font-size: var(--er-font-size-base);
-  border-radius: var(--er-border-radius-base);
+  font-size: var(--xida-font-size-base);
+  border-radius: var(--xida-border-radius-base);
 
   /*circle*/
   &.is-circle {
@@ -149,12 +297,12 @@
   }
 }
 
-.er-button--small {
-  --er-button-size: 24px;
-  height: var(--er-button-size);
+.xida-button--small {
+  --xida-button-size: 24px;
+  height: var(--xida-button-size);
   padding: 5px 11px;
   font-size: 12px;
-  border-radius: calc(var(--er-border-radius-base) - 1px);
+  border-radius: calc(var(--xida-border-radius-base) - 1px);
 
   /*circle*/
   &.is-circle {
@@ -168,7 +316,7 @@
   }
 }
 
-.er-button-group {
+.xida-button-group {
   display: inline-block;
   vertical-align: middle;
 
@@ -184,20 +332,20 @@
     &:first-child {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      border-right-color: var(--er-button-group-border-color);
+      border-right-color: var(--xida-button-group-border-color);
     }
 
     &:last-child {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      border-left-color: var(--er-button-group-border-color);
+      border-left-color: var(--xida-button-group-border-color);
     }
 
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
 
-      border-left-color: var(--er-button-group-border-color);
-      border-right-color: var(--er-button-group-border-color);
+      border-left-color: var(--xida-button-group-border-color);
+      border-right-color: var(--xida-button-group-border-color);
     }
 
     &:not(:last-child) {
@@ -205,13 +353,13 @@
     }
 
     &:first-child:last-child {
-      border-top-right-radius: var(--er-border-radius-base);
-      border-bottom-right-radius: var(--er-border-radius-base);
-      border-top-left-radius: var(--er-border-radius-base);
-      border-bottom-left-radius: var(--er-border-radius-base);
+      border-top-right-radius: var(--xida-border-radius-base);
+      border-bottom-right-radius: var(--xida-border-radius-base);
+      border-top-left-radius: var(--xida-border-radius-base);
+      border-bottom-left-radius: var(--xida-border-radius-base);
 
       &.is-round {
-        border-radius: var(--er-border-radius-round);
+        border-radius: var(--xida-border-radius-round);
       }
 
       &.is-circle {

@@ -8,7 +8,8 @@
     "test": "pnpm --filter @xida-ui/components test",
     "docs:dev": "pnpm --filter @xida-ui/docs dev",
     "docs:build": "pnpm --filter @xida-ui/docs build",
-    "build": "run-s build-hooks build-comp build-utils"
+    "build": "run-s build-hooks build-comp build-utils",
+    "story": "pnpm --filter @xida-ui/play storybook"
   },
   "keywords": [],
   "author": "",
@@ -19,11 +20,12 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "3.1.0",
     "@vue/tsconfig": "^0.7.0",
+    "postcss": "^8.5.3",
     "postcss-color-mix": "1.1.0",
     "postcss-each": "1.1.0",
     "postcss-each-variables": "0.3.0",
     "postcss-for": "2.1.1",
-    "postcss-nested": "6.0.1",
+    "postcss-nested": "7.0.2",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
     "vitest": "1.4.0",
@@ -33,8 +35,8 @@
     "@xida-ui/hooks": "workspace:*",
     "@xida-ui/theme": "workspace:*",
     "@xida-ui/utils": "workspace:*",
-    "xida-ui": "workspace:*",
     "lodash-es": "4.17.21",
-    "vue": "3.5.13"
+    "vue": "3.5.13",
+    "xida-ui": "workspace:*"
   }
 }

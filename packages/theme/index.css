@@ -1,69 +1,68 @@
-@import "./reset.css";
+@import "./reset.css" ;
+
 
 :root {
-    /* colors */
-    --xida-color-white: #ffffff;
-    --xida-color-black: #000000;
-    --xidalors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
-    --xida-bg-color: #ffffff;
-    --xida-bg-color-page: #f2f3f5;
-    --xida-bg-color-overlay: #ffffff;
-    --xida-text-color-primary: #303133;
-    --xida-text-color-regular: #606266;
-    --xida-text-color-secondary: #909399;
-    --xida-text-color-placeholder: #a8abb2;
-    --xida-text-color-disabled: #c0c4cc;
-    --xida-border-color: #dcdfe6;
-    --xida-border-color-light: #e4e7ed;
-    --xida-border-color-lighter: #ebeef5;
-    --xida-border-color-extra-light: #f2f6fc;
-    --xida-border-color-dark: #d4d7de;
-    --xida-border-color-darker: #cdd0d6;
-    --xida-fill-color: #f0f2f5;
-    --xida-fill-color-light: #f5f7fa;
-    --xida-fill-color-lighter: #fafafa;
-    --xida-fill-color-extra-light: #fafcff;
-    --xida-fill-color-dark: #ebedf0;
-    --xida-fill-color-darker: #e6e8eb;
-    --xida-fill-color-blank: #ffffff;
-  
-    @each $val, $color in var(--colors) {
-      --xida-color-$(val): $(color);
-      @for $i from 3 to 9 {
-        --xida-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
-      }
-      --xida-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+
+  --xida-color-white: #ffffff;
+  --xida-color-black: #000000;
+  --xidalors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
+  --xida-bg-color: #ffffff;
+  --xida-bg-color-page: #f2f3f5;
+  --xida-bg-color-overlay: #ffffff;
+  --xida-text-color-primary: #303133;
+  --xida-text-color-regular: #606266;
+  --xida-text-color-secondary: #909399;
+  --xida-text-color-placeholder: #a8abb2;
+  --xida-text-color-disabled: #c0c4cc;
+  --xida-border-color: #dcdfe6;
+  --xida-border-color-light: #e4e7ed;
+  --xida-border-color-lighter: #ebeef5;
+  --xida-border-color-extra-light: #f2f6fc;
+  --xida-border-color-dark: #d4d7de;
+  --xida-border-color-darker: #cdd0d6;
+  --xida-fill-color: #f0f2f5;
+  --xida-fill-color-light: #f5f7fa;
+  --xida-fill-color-lighter: #fafafa;
+  --xida-fill-color-extra-light: #fafcff;
+  --xida-fill-color-dark: #ebedf0;
+  --xida-fill-color-darker: #e6e8eb;
+  --xida-fill-color-blank: #ffffff;
+
+  @each $val, $color in var(--colors) {
+    --xida-color-$(val): $(color);
+    @for $i from 3 to 9 {
+      --xida-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
     }
-  
-    /* border */
-    --xida-border-width: 1px;
-    --xida-border-style: solid;
-    --xida-border-color-hover: var(--xida-text-color-disabled);
-    --xida-border: var(--xida-border-width) var(--xida-border-style) var(--xida-border-color);
-    --xida-border-radius-base: 4px;
-    --xida-border-radius-small: 2px;
-    --xida-border-radius-round: 20px;
-    --xida-border-radius-circle: 100%;
-  
-    /*font*/
-    --xida-font-size-extra-large: 20px;
-    --xida-font-size-large: 18px;
-    --xida-font-size-medium: 16px;
-    --xida-font-size-base: 14px;
-    --xida-font-size-small: 13px;
-    --xida-font-size-extra-small: 12px;
-    --xida-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
-      'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
-    --xida-font-weight-primary: 500;
-  
-    /*disabled*/
-    --xida-disabled-bg-color: var(--xida-fill-color-light);
-    --xida-disabled-text-color: var(--xida-text-color-placeholder);
-    --xida-disabled-border-color: var(--xida-border-color-light);
-  
-    /*animation*/
-    --xida-transition-duration: 0.4s;
-    --xida-transition-duration-fast: 0.2s;
+    --xida-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  /* border */
+  --xida-border-width: 1px;
+  --xida-border-style: solid;
+  --xida-border-color-hover: var(--xida-text-color-disabled);
+  --xida-border: var(--xida-border-width) var(--xida-border-style) var(--xida-border-color);
+  --xida-border-radius-base: 4px;
+  --xida-border-radius-small: 2px;
+  --xida-border-radius-round: 20px;
+  --xida-border-radius-circle: 100%;
+
+  /*font*/
+  --xida-font-size-extra-large: 20px;
+  --xida-font-size-large: 18px;
+  --xida-font-size-medium: 16px;
+  --xida-font-size-base: 14px;
+  --xida-font-size-small: 13px;
+  --xida-font-size-extra-small: 12px;
+  --xida-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
+  --xida-font-weight-primary: 500;
+
+  /*disabled*/
+  --xida-disabled-bg-color: var(--xida-fill-color-light);
+  --xida-disabled-text-color: var(--xida-text-color-placeholder);
+  --xida-disabled-border-color: var(--xida-border-color-light);
+
+  /*animation*/
+  --xida-transition-duration: 0.4s;
+  --xida-transition-duration-fast: 0.2s;
 }
-
-

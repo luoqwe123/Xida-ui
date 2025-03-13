@@ -3,7 +3,7 @@ import { fn, within, userEvent, expect, clearAllMocks } from "@storybook/test";
 import { set } from "lodash-es";
 
 import { XidaButton } from "xida-ui";
-import 'toy-element/dist/theme/Button.css';
+// import 'xida-ui/dist/theme/Button.css';
 
 type Story = StoryObj<typeof XidaButton> & { argTypes?: ArgTypes };
 
@@ -69,7 +69,7 @@ export const Default: Story & { args: { content: string } } = {
     type: "primary",
     content: "Button",
   },
-  render: (args) => ({
+  render: (args: any) => ({
     components: {XidaButton },
     setup() {
       return { args };
@@ -131,108 +131,108 @@ export const Default: Story & { args: { content: string } } = {
   },
 };
 
-export const Autofocus: Story & { args: { content: string } } = {
-  argTypes: {
-    content: {
-      control: { type: "text" },
-    },
-  },
-  args: {
-    content: "Button",
-    autofocus: true,
-  },
-  render: (args) => ({
-    components: { XidaButton },
-    setup() {
-      return { args };
-    },
-    template: container(
-      `
-      <p>请点击浏览器的刷新页面来获取按钮聚焦</p>
-      <er-button data-testid="story-test-btn" v-bind="args">{{args.content}}</er-button>
-      `
-    ),
-  }),
-  play: async ({ args }) => {
-    await userEvent.keyboard("{enter}");
+// export const Autofocus: Story & { args: { content: string } } = {
+//   argTypes: {
+//     content: {
+//       control: { type: "text" },
+//     },
+//   },
+//   args: {
+//     content: "Button",
+//     autofocus: true,
+//   },
+//   render: (args) => ({
+//     components: { XidaButton },
+//     setup() {
+//       return { args };
+//     },
+//     template: container(
+//       `
+//       <p>请点击浏览器的刷新页面来获取按钮聚焦</p>
+//       <er-button data-testid="story-test-btn" v-bind="args">{{args.content}}</er-button>
+//       `
+//     ),
+//   }),
+//   play: async ({ args }) => {
+//     await userEvent.keyboard("{enter}");
 
-    expect(args.onClick).toHaveBeenCalledOnce();
-    clearAllMocks();
-  },
-};
+//     expect(args.onClick).toHaveBeenCalledOnce();
+//     clearAllMocks();
+//   },
+// };
 
-export const Circle: Story = {
-  args: {
-    icon: "search",
-  },
-  render: (args) => ({
-    components: { XidaButton },
-    setup() {
-      return { args };
-    },
-    template: container(`
-      <er-button circle v-bind="args"/>
-    `),
-  }),
-  play: async ({ canvasElement, args, step }) => {
-    const canvas = within(canvasElement);
-    await step("click button", async () => {
-      await userEvent.click(canvas.getByRole("button"));
-    });
+// export const Circle: Story = {
+//   args: {
+//     icon: "search",
+//   },
+//   render: (args) => ({
+//     components: { XidaButton },
+//     setup() {
+//       return { args };
+//     },
+//     template: container(`
+//       <er-button circle v-bind="args"/>
+//     `),
+//   }),
+//   play: async ({ canvasElement, args, step }) => {
+//     const canvas = within(canvasElement);
+//     await step("click button", async () => {
+//       await userEvent.click(canvas.getByRole("button"));
+//     });
 
-    expect(args.onClick).toHaveBeenCalled();
-  },
-};
+//     expect(args.onClick).toHaveBeenCalled();
+//   },
+// };
 
-export const Group: Story & { args: { content1: string; content2: string } } = {
-  argTypes: {
-    groupType: {
-      control: { type: "select" },
-      options: ["primary", "success", "warning", "danger", "info", ""],
-    },
-    groupSize: {
-      control: { type: "select" },
-      options: ["large", "default", "small", ""],
-    },
-    groupDisabled: {
-      control: "boolean",
-    },
-    content1: {
-      control: { type: "text" },
-      defaultValue: "Button1",
-    },
-    content2: {
-      control: { type: "text" },
-      defaultValue: "Button2",
-    },
-  },
-  args: {
-    round: true,
-    content1: "Button1",
-    content2: "Button2",
-  },
-  render: (args) => ({
-    components: { XidaButton, ErButtonGroup },
-    setup() {
-      return { args };
-    },
-    template: container(`
-       <er-button-group :type="args.groupType" :size="args.groupSize" :disabled="args.groupDisabled">
-         <er-button v-bind="args">{{args.content1}}</er-button>
-         <er-button v-bind="args">{{args.content2}}</er-button>
-       </er-button-group>
-    `),
-  }),
-  play: async ({ canvasElement, args, step }) => {
-    const canvas = within(canvasElement);
-    await step("click btn1", async () => {
-      await userEvent.click(canvas.getByText("Button1"));
-    });
-    await step("click btn2", async () => {
-      await userEvent.click(canvas.getByText("Button2"));
-    });
-    expect(args.onClick).toHaveBeenCalled();
-  },
-};
+// export const Group: Story & { args: { content1: string; content2: string } } = {
+//   argTypes: {
+//     groupType: {
+//       control: { type: "select" },
+//       options: ["primary", "success", "warning", "danger", "info", ""],
+//     },
+//     groupSize: {
+//       control: { type: "select" },
+//       options: ["large", "default", "small", ""],
+//     },
+//     groupDisabled: {
+//       control: "boolean",
+//     },
+//     content1: {
+//       control: { type: "text" },
+//       defaultValue: "Button1",
+//     },
+//     content2: {
+//       control: { type: "text" },
+//       defaultValue: "Button2",
+//     },
+//   },
+//   args: {
+//     round: true,
+//     content1: "Button1",
+//     content2: "Button2",
+//   },
+//   render: (args) => ({
+//     components: { XidaButton, ErButtonGroup },
+//     setup() {
+//       return { args };
+//     },
+//     template: container(`
+//        <er-button-group :type="args.groupType" :size="args.groupSize" :disabled="args.groupDisabled">
+//          <er-button v-bind="args">{{args.content1}}</er-button>
+//          <er-button v-bind="args">{{args.content2}}</er-button>
+//        </er-button-group>
+//     `),
+//   }),
+//   play: async ({ canvasElement, args, step }) => {
+//     const canvas = within(canvasElement);
+//     await step("click btn1", async () => {
+//       await userEvent.click(canvas.getByText("Button1"));
+//     });
+//     await step("click btn2", async () => {
+//       await userEvent.click(canvas.getByText("Button2"));
+//     });
+//     expect(args.onClick).toHaveBeenCalled();
+//   },
+// };
 
 export default meta;

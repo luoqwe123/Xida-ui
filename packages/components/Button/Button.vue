@@ -13,7 +13,9 @@
       'is-circle': circle,
       'is-disabled': disabled,
       'is-round': round
-    }">
+    }"
+    @click="(e:MouseEvent)=>useThrotle?handleClickThrottle:handleClick"
+    >
       <slot></slot>
     </component>
 </template>
@@ -50,7 +52,7 @@ const  slots = defineSlots()
 const  emits = defineEmits<ButtonEmits>()
 
 const handleClick = (e:MouseEvent) => emits("click",e)
-const handleClickThrottle = throttle(handleClick,1000)
+const handleClickThrottle = throttle(handleClick,props.throttleDuration)
 
 
 </script>

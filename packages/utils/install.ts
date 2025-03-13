@@ -14,9 +14,9 @@ export function makeInstaller(components: Plugin[]) {
   }
   return install;
 }
-// ast  转化为抽象语法树
+// ast  转化为抽象语法树  将组件抽象
 export const withInstall = <T>(component: T) => {
-  // console.log("utlis WI", (component));
+  // console.log("utlis WI", (component));  
   (component as SFCWithInstall<T>).install = (app: App) => {
 
     const name = (component as any)?.name || "UnnamedComponent";

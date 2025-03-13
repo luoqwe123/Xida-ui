@@ -55,7 +55,7 @@ jobs:                     ## 定义工作流中的任务（jobs），每个 job 
               cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install ##--frozen-lockfile
 
     #   - name: Build component
     #     run: pnpm  build

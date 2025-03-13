@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "My Awesome Project",
-  description: "风风组件库",
+  title: "xida-ui",
+  description: "一个基于vue3的组件库",
   base: "/Xida-ui/",  // 保持子路径
   
   themeConfig: {

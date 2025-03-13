@@ -1,4 +1,7 @@
 /** reset.css */
+
+
+
 body {
     font-family: var(--wan-font-family);
     font-weight: 400;
@@ -85,8 +88,8 @@ body {
   hr {
     margin-top: 20px;
     margin-bottom: 20px;
-    bordwan: 0;
-    bordwan-top: 1px solid var(--wan-bordwan-color-lightwan);
+    /* bordwan: 0;
+    bordwan-top: 1px solid var(--wan-bordwan-color-lightwan); */
   }
   
   

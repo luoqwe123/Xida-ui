@@ -14,7 +14,7 @@
       'is-disabled': disabled,
       'is-round': round
     }"
-    @click="(e:MouseEvent)=>useThrotle?handleClickThrottle:handleClick"
+    @click="()=>useThrotle?handleClickThrottle:handleClick"
     >
       <slot></slot>
     </component>
@@ -31,7 +31,7 @@
 
 
 import { ref, withDefaults } from 'vue';
-import type { ButtonProps,ButtonEmits,ButtonIstance } from './type';
+import type { ButtonProps,ButtonEmits, } from './type';
 import { throttle } from 'lodash-es';
 
 defineOptions({

@@ -4,7 +4,7 @@ import { each } from "lodash-es";
 type SFCWithInstall<T> = T & Plugin;
 //安装一个插件
 export function makeInstaller(components: Plugin[]) {
-  const install = (app: App,options?:any[]) => {
+  const install = (app: App,) => {
     each(components, (c) => {
       // console.log("c", c)
       app.use(c);

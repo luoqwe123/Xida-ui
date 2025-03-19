@@ -63,6 +63,7 @@ export default defineConfig({
       output: {
        
         assetFileNames: (assetInfo) => {
+          // console.log("assetInfo",assetInfo)
           if (assetInfo.name === "style.css") return "index.css";
           if (
             assetInfo.type === "asset" &&
@@ -92,6 +93,7 @@ export default defineConfig({
           }
         },
       },
+    
     },
   },
 });

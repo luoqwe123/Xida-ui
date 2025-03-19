@@ -1,4 +1,4 @@
-import type { Component,Ref } from "vue"
+import type { Component, Ref } from "vue";
 
 
 
@@ -30,4 +30,17 @@ export interface ButtonEmits {
 }
 export interface ButtonIstance {
     ref: Ref<HTMLButtonElement | void>
+}
+/**
+ * @group Button
+ */
+export interface ButtonGroupProps {
+    size?: ButtonSize;
+    type?: ButtonType;
+    disabled?: boolean;
+}
+export interface ButtonGroupContext {
+    size?: ButtonSize;
+    type?: ButtonType;
+    disabled?: boolean;
 }

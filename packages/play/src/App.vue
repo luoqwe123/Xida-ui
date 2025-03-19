@@ -1,10 +1,19 @@
 <template>
-  <XidaButton size="small" type="primary">你好</XidaButton>
+  <xida-button size="small" type="primary" round="true">你好</xida-button>
+  <xida-button-group>
+    <xida-button size="small" type="danger" round="true">你好</xida-button>
+    <xida-button size="small" type="success" round="true">你好</xida-button>
+    <xida-button size="small" type="warning" round="true">你好</xida-button>
+  </xida-button-group>
+
 </template>
 
 <script setup lang="ts">
 
-import { XidaButton } from 'xida-ui';
+// import { XidaButton } from 'xida-ui';
+import xidaButtonGroup from "../../components/Button/ButtonGroup.vue"
+
+
 
 </script>
 

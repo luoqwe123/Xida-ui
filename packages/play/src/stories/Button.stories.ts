@@ -8,49 +8,49 @@ import { XidaButton } from "xida-ui";
 type Story = StoryObj<typeof XidaButton> & { argTypes?: ArgTypes };
 
 const meta: Meta<typeof XidaButton> = {
-    title: "Example/Button",
-    component: XidaButton,
-    tags: ["autodocs"],
-    argTypes: {
-        type: {
-            control: { type: "select" },
-            options: ["primary", "success", "warning", "danger", "info", ""],
-        },
-        size: {
-            control: { type: "select" },
-            options: ["large", "default", "small", ""],
-        },
-        disabled: {
-            control: "boolean",
-        },
-        loading: {
-            control: "boolean",
-        },
-        useThrottle: {
-            control: "boolean",
-        },
-        throttleDuration: {
-            control: "number",
-        },
-        autofocus: {
-            control: "boolean",
-        },
-        tag: {
-            control: { type: "select" },
-            options: ["button", "a", "div"],
-        },
-        nativeType: {
-            control: { type: "select" },
-            options: ["button", "submit", "reset", ""],
-        },
-        icon: {
-            control: { type: "text" },
-        },
-        loadingIcon: {
-            control: { type: "text" },
-        },
+  title: "Example/Button",
+  component: XidaButton,
+  tags: ["autodocs"],
+  argTypes: {
+    type: {
+      control: { type: "select" },
+      options: ["primary", "success", "warning", "danger", "info", ""],
     },
-    args: { onClick: fn() },
+    size: {
+      control: { type: "select" },
+      options: ["large", "default", "small", ""],
+    },
+    disabled: {
+      control: "boolean",
+    },
+    loading: {
+      control: "boolean",
+    },
+    useThrottle: {
+      control: "boolean",
+    },
+    throttleDuration: {
+      control: "number",
+    },
+    autofocus: {
+      control: "boolean",
+    },
+    tag: {
+      control: { type: "select" },
+      options: ["button", "a", "div"],
+    },
+    nativeType: {
+      control: { type: "select" },
+      options: ["button", "submit", "reset", ""],
+    },
+    icon: {
+      control: { type: "text" },
+    },
+    loadingIcon: {
+      control: { type: "text" },
+    },
+  },
+  args: { onClick: fn() },
 };
 
 const container = (val: string) => `
@@ -60,75 +60,75 @@ const container = (val: string) => `
 `;
 
 export const Default: Story & { args: { content: string } } = {
-    argTypes: {
-        content: {
-            control: { type: "text" },
-        },
+  argTypes: {
+    content: {
+      control: { type: "text" },
     },
-    args: {
-        type: "primary",
-        content: "Button",
+  },
+  args: {
+    type: "primary",
+    content: "Button",
+  },
+  render: (args: any) => ({
+    components: { XidaButton },
+    setup() {
+      return { args };
     },
-    render: (args: any) => ({
-        components: { XidaButton },
-        setup() {
-            return { args };
-        },
-        template: container(
-            `<xida-button data-testid="story-test-btn" v-bind="args">{{args.content}}</xida-button>`
-        ),
-    }),
+    template: container(
+      `<xida-button data-testid="story-test-btn" v-bind="args">{{args.content}}</xida-button>`
+    ),
+  }),
 
-    //   play: async ({ canvasElement, args, step }) => {
-    //     const canvas = within(canvasElement);
-    //     const btn = canvas.getByTestId("story-test-btn");
+  //   play: async ({ canvasElement, args, step }) => {
+  //     const canvas = within(canvasElement);
+  //     const btn = canvas.getByTestId("story-test-btn");
 
-    //     await step(
-    //       "When useThrottle is set to true, the onClick should be called once",
-    //       async () => {
-    //         set(args, "useThrottle", true);
-    //         await userEvent.tripleClick(btn);
+  //     await step(
+  //       "When useThrottle is set to true, the onClick should be called once",
+  //       async () => {
+  //         set(args, "useThrottle", true);
+  //         await userEvent.tripleClick(btn);
 
-    //         expect(args.onClick).toHaveBeenCalledOnce();
-    //         clearAllMocks();
-    //       }
-    //     );
+  //         expect(args.onClick).toHaveBeenCalledOnce();
+  //         clearAllMocks();
+  //       }
+  //     );
 
-    //     await step(
-    //       "When useThrottle is set to false, the onClick should be called three times",
-    //       async () => {
-    //         set(args, "useThrottle", false);
-    //         await userEvent.tripleClick(btn);
+  //     await step(
+  //       "When useThrottle is set to false, the onClick should be called three times",
+  //       async () => {
+  //         set(args, "useThrottle", false);
+  //         await userEvent.tripleClick(btn);
 
-    //         expect(args.onClick).toHaveBeenCalledTimes(3);
-    //         clearAllMocks();
-    //       }
-    //     );
+  //         expect(args.onClick).toHaveBeenCalledTimes(3);
+  //         clearAllMocks();
+  //       }
+  //     );
 
-    //     await step(
-    //       "When disabled is set to true, the onClick should not be called",
-    //       async () => {
-    //         set(args, "disabled", true);
-    //         await userEvent.click(btn);
+  //     await step(
+  //       "When disabled is set to true, the onClick should not be called",
+  //       async () => {
+  //         set(args, "disabled", true);
+  //         await userEvent.click(btn);
 
-    //         expect(args.onClick).toHaveBeenCalledTimes(0);
-    //         set(args, "disabled", false);
-    //         clearAllMocks();
-    //       }
-    //     );
+  //         expect(args.onClick).toHaveBeenCalledTimes(0);
+  //         set(args, "disabled", false);
+  //         clearAllMocks();
+  //       }
+  //     );
 
-    //     await step(
-    //       "When loading is set to true, the onClick should not be called",
-    //       async () => {
-    //         set(args, "loading", true);
-    //         await userEvent.click(btn);
+  //     await step(
+  //       "When loading is set to true, the onClick should not be called",
+  //       async () => {
+  //         set(args, "loading", true);
+  //         await userEvent.click(btn);
 
-    //         expect(args.onClick).toHaveBeenCalledTimes(0);
-    //         set(args, "loading", false);
-    //         clearAllMocks();
-    //       }
-    //     );
-    //   },
+  //         expect(args.onClick).toHaveBeenCalledTimes(0);
+  //         set(args, "loading", false);
+  //         clearAllMocks();
+  //       }
+  //     );
+  //   },
 };
 
 // export const Autofocus: Story & { args: { content: string } } = {

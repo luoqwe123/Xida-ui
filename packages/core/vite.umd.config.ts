@@ -23,27 +23,28 @@ import vue from "@vitejs/plugin-vue";
 // }
 
 export default defineConfig({
-    plugins: [vue()],
-    build: {
-        outDir: "dist/umd",
-        lib: {    // 配置库模式构建。
-            entry: resolve(__dirname, "./index.ts"),
-            name: "Xida-ui",  // UMD 全局变量名，浏览器中通过 <script> 使用时暴露为 Xida-ui
-            fileName: "index",  // 输出文件名（生成 index.umd.js）。
-            formats: ["umd"],   // 仅输出 UMD 格式
-        },
-        rollupOptions: {
-            external: ["vue"],  // 将 Vue 作为外部依赖，不打包进 UMD
-            output: {
-                exports: "named",
-                globals: {
-                    vue: "Vue",  // 映射外部依赖的全局变量名
-                },
-                assetFileNames: (assetInfo) => {   // 重命名输出资产文件，style.css 改为 index.css
-                    if (assetInfo.name === "style.css") return "index.css";
-                    return assetInfo.name as string;
-                },
-            },
-        },
+  plugins: [vue()],
+  build: {
+    outDir: "dist/umd",
+    lib: {    // 配置库模式构建。
+      entry: resolve(__dirname, "./index.ts"),
+      name: "Xida-ui",  // UMD 全局变量名，浏览器中通过 <script> 使用时暴露为 Xida-ui
+      fileName: "index",  // 输出文件名（生成 index.umd.js）。
+      formats: ["umd"],   // 仅输出 UMD 格式
     },
+    rollupOptions: {
+      external: ["vue"],  // 将 Vue 作为外部依赖，不打包进 UMD
+      output: {
+        exports: "named",
+        globals: {
+          vue: "Vue",  // 映射外部依赖的全局变量名
+        },
+        assetFileNames: (assetInfo) => {
+          console.log("assetInfo",assetInfo);  // 重命名输出资产文件，style.css 改为 index.css
+          if (assetInfo.name === "style.css") return "index.css";
+          return assetInfo.name as string;
+        },
+      },
+    },
+  },
 });

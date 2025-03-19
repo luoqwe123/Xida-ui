@@ -3,4 +3,5 @@ import Button from "./Button.vue";
 import { withInstall } from "@xida-ui/utils";
 
 export const XidaButton = withInstall(Button);
-console.log("ff",XidaButton)
+export * from "./type";
+

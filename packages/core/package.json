@@ -11,9 +11,14 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/es/index.js",
-      "require": "./dist/umd/index.umd.cjs",
-      "types": "./dist/types/core/index.d.ts"
+      "import": {
+        "types": "./dist/types/core/index.d.ts",
+        "default": "./dist/es/index.js"
+      },
+      "require": {
+        "types": "./dist/types/core/index.d.ts",
+        "default": "./dist/umd/index.umd.cjs"
+      }
     },
     "./dist/": {
       "import": "./dist/",
@@ -21,11 +26,11 @@
     }
   },
   "sideEffects": [
-    "./dist/index.css"
+    "./dist/es/style/*.css"
   ],
   "scripts": {
-    "build": "clean && build-es && build-umd",
-    "build:watch": "build-es:watch && build-umd:watch",
+    "build": "run-p clean build-es  build-umd",
+    "build:watch": "run-p build-es:watch  build-umd:watch",
     "build-umd": "vite build --config vite.umd.config.ts",
     "build-es": "vite build --config vite.es.config.ts",
     "build-umd:watch": "vite build --watch --config vite.umd.config.ts",

@@ -15,9 +15,9 @@
       'is-round': round
     }"
     @click="()=>useThrotle?handleClickThrottle:handleClick"
-    >
-      <slot></slot>
-    </component>
+  >
+    <slot></slot>
+  </component>
 </template>
 
 <script setup lang="ts">
@@ -28,32 +28,30 @@
  * style.css 
  * constants.ts
  */
-
-
-import { ref, withDefaults } from 'vue';
+import { ref, withDefaults,inject,computed } from 'vue';
 import type { ButtonProps,ButtonEmits, } from './type';
 import { throttle } from 'lodash-es';
+import { BUTTON_GROUP_CTX_KEY } from './contants';
 
 defineOptions({
-  name: "xida-Button",
+  name: "xida-button",
 });
-
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
   nativeType: "button",
   useThrotle: true,
   throttleDuration: 500
 
-})
-
-const _ref = ref<HTMLButtonElement|null>(null)
-const  slots = defineSlots()
-
-const  emits = defineEmits<ButtonEmits>()
-
-const handleClick = (e:MouseEvent) => emits("click",e)
-const handleClickThrottle = throttle(handleClick,props.throttleDuration)
-
+});
+const _ref = ref<HTMLButtonElement|null>(null);
+const  slots = defineSlots();
+const  emits = defineEmits<ButtonEmits>();
+const handleClick = (e:MouseEvent) => emits("click",e);
+const handleClickThrottle = throttle(handleClick,props.throttleDuration);
+const ctx = inject(BUTTON_GROUP_CTX_KEY,void 0)
+const size = computed(() => ctx?.size ?? props?.size ?? "");
+const type = computed(() => ctx?.type ?? props?.type ?? "");
+const disabled = computed(() => ctx?.disabled || props?.disabled || false);
 
 </script>
 

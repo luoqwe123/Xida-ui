@@ -34,7 +34,7 @@
     "@vitejs/plugin-vue-jsx": "3.1.0",
     "@vue/tsconfig": "^0.7.0",
     "concurrently": "^9.1.2",
-    "conventional-changelog-conventionalcommits": "^8.0.0",
+    "conventional-changelog-conventionalcommits": "^7.0.2",
     "dotenv-cli": "^8.0.0",
     "eslint": "^9.22.0",
     "eslint-plugin-vue": "^10.0.0",

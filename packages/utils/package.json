@@ -1,6 +1,6 @@
 {
   "name": "@xida-ui/utils",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "main": "index.js",
   "scripts": {

@@ -40,7 +40,7 @@ export default defineConfig({
           vue: "Vue",  // 映射外部依赖的全局变量名
         },
         assetFileNames: (assetInfo) => {
-          console.log("assetInfo",assetInfo);  // 重命名输出资产文件，style.css 改为 index.css
+          // 重命名输出资产文件，style.css 改为 index.css
           if (assetInfo.name === "style.css") return "index.css";
           return assetInfo.name as string;
         },

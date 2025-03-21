@@ -1,0 +1,115 @@
+.xida-message {
+    --xida-message-bg-color: var(--xida-color-info-light-9);
+    --xida-message-border-color: var(--xida-border-color-lighter);
+    --xida-message-padding: 15px 19px;
+    --xida-message-close-size: 16px;
+    --xida-message-close-icon-color: var(--xida-text-color-placeholder);
+    --xida-message-close-hover-color: var(--xida-text-color-secondary);
+    --xida-message-icon-size: 16px;
+    --xida-message-icon-margin: 8px;
+}
+
+.xida-message {
+    width: fit-content;
+    max-width: calc(100% - 32px);
+    box-sizing: border-box;
+    border-radius: var(--xida-border-radius-base);
+    border-width: var(--xida-border-width);
+    border-style: var(--xida-border-style);
+    border-color: var(--xida-message-border-color);
+    position: fixed;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    background-color: var(--xida-message-bg-color);
+    padding: var(--xida-message-padding);
+    display: flex;
+    align-items: center;
+    transition: top var(--xida-transition-duration), opacity var(--xida-transition-duration),
+        transform var(--xida-transition-duration);
+
+    .xida-message__icon {
+        color: var(--xida-message-text-color);
+        font-size: var(--xida-message-icon-size);
+        width: var(--xida-message-icon-size);
+        margin-right: var(--xida-message-icon-margin);
+    }
+
+    .xida-message__content {
+        color: var(--xida-message-text-color);
+        overflow-wrap: break-word;
+    }
+
+    &.is-close .xida-message__content {
+        padding-right: 10px;
+    }
+
+    &.text-center {
+        justify-content: center;
+    }
+
+    .xida-message__close {
+        display: flex;
+        align-items: center;
+    }
+
+    .xida-message__close .xida-icon {
+        cursor: pointer;
+    }
+}
+
+.xida-message--info {
+    --xida-message-bg-color: var(--xida-color-info-light-9);
+    --xida-message-border-color: var(--xida-color-info-light-8);
+    --xida-message-text-color: var(--xida-color-info);
+}
+
+.xida-message--info .xida-message__close {
+    --xida-icon-color: var(--xida-color-info);
+}
+
+.xida-message--success {
+    --xida-message-bg-color: var(--xida-color-success-light-9);
+    --xida-message-border-color: var(--xida-color-success-light-8);
+    --xida-message-text-color: var(--xida-color-success);
+}
+
+.xida-message--success .xida-message__close {
+    --xida-icon-color: var(--xida-color-success);
+}
+
+.xida-message--warning {
+    --xida-message-bg-color: var(--xida-color-warning-light-9);
+    --xida-message-border-color: var(--xida-color-warning-light-8);
+    --xida-message-text-color: var(--xida-color-warning);
+}
+
+.xida-message--warning .xida-message__close {
+    --xida-icon-color: var(--xida-color-warning);
+}
+
+.xida-message--danger {
+    --xida-message-bg-color: var(--xida-color-danger-light-9);
+    --xida-message-border-color: var(--xida-color-danger-light-8);
+    --xida-message-text-color: var(--xida-color-danger);
+}
+
+.xida-message--danger .xida-message__close {
+    --xida-icon-color: var(--xida-color-danger);
+}
+
+.xida-message--error {
+    --xida-message-bg-color: var(--xida-color-danger-light-9);
+    --xida-message-border-color: var(--xida-color-danger-light-8);
+    --xida-message-text-color: var(--xida-color-danger);
+
+    .xida-message__close {
+        --xida-icon-color: var(--xida-color-danger);
+    }
+}
+
+.xida-message.fade-up-enter-from,
+.xida-message.fade-up-leave-to {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+}

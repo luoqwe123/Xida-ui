@@ -1,6 +1,10 @@
 // components.ts
 
-import { XidaButton } from "@xida-ui/components";   //导入组件
+import { XidaButton,XidaIcon } from "@xida-ui/components";   //导入组件
 import type { Plugin } from "vue";
 
-export default [XidaButton] as Plugin[];
+export default [
+    XidaButton,
+    XidaIcon,
+    
+] as Plugin[];

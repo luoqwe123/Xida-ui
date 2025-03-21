@@ -1,7 +1,5 @@
 <template>
-    <div class="container">
-        
-    </div>
+   <Transition></Transition>
 </template>
 
 <script setup lang='ts'>

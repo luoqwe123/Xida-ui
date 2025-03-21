@@ -1,0 +1,30 @@
+.xida-icon {
+  --xida-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--xida-icon-color);
+  font-size: inherit;
+}
+
+.xida-icon--primary {
+  --xida-icon-color: var(--xida-color-primary);
+}
+
+.xida-icon--info {
+  --xida-icon-color: var(--xida-color-info);
+}
+
+.xida-icon--success {
+  --xida-icon-color: var(--xida-color-success);
+}
+
+.xida-icon--warning {
+  --xida-icon-color: var(--xida-color-warning);
+}
+
+.xida-icon--danger {
+  --xida-icon-color: var(--xida-color-danger);
+}

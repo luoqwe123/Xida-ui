@@ -2,7 +2,7 @@ import { describe, it, expect,test } from 'vitest';
 import { mount } from '@vue/test-utils';
 import ButtonGroup from "../ButtonGroup.vue";
 import Button from '../Button.vue'; // 假设组件路径
-
+import Icon from "../../Icon/Icon.vue";
 
 describe('XidaButton', () => {
   // 测试 1：默认渲染为 button 标签
@@ -91,6 +91,52 @@ describe('XidaButton', () => {
     const wrapper = mount(Button);
     // @ts-ignore
     expect(wrapper.vm.$refs._ref).toBeInstanceOf(HTMLButtonElement);
+  });
+  test("loading button", () => {
+    const wrapper = mount(Button, {
+      props: {
+        loading: true,
+      },
+      slots: {
+        default: "loading button",
+      },
+      global: {
+        stubs: ["xidaIcon"],
+      },
+    });
+
+    // class
+    expect(wrapper.classes()).toContain("is-loading");
+
+    // attrs
+    expect(wrapper.attributes("disabled")).toBeDefined();
+    
+    
+    expect(wrapper.find("button").element.disabled).toBe(true);
+
+    // events
+    wrapper.get("button").trigger("click");
+    expect(wrapper.emitted()).not.toHaveProperty("click");
+
+    
+  });
+  test("icon button", () => {
+    const wrapper = mount(Button, {
+      props: {
+        icon: "arrow-up",
+      },
+      slots: {
+        default: "icon button",
+      },
+      global: {
+        stubs: ["xidaIcon"],
+      },
+    });
+
+    const iconElement = wrapper.findComponent(Icon);
+    expect(iconElement.exists()).toBeTruthy();
+    console.log("laoding",iconElement.attributes("icon"))
+    expect(iconElement.attributes("icon")).toBe("arrow-up");
   });
 });
 

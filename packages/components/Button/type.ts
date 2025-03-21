@@ -1,4 +1,4 @@
-import type { Component, Ref } from "vue";
+import type { Component, ComputedRef, Ref } from "vue";
 
 
 
@@ -29,7 +29,10 @@ export interface ButtonEmits {
     (e: "click", val: MouseEvent): void
 }
 export interface ButtonIstance {
-    ref: Ref<HTMLButtonElement | void>
+    ref: Ref<HTMLButtonElement | void>;
+    disabled: ComputedRef<boolean>;
+    size: ComputedRef<ButtonSize | "">;
+    type: ComputedRef<ButtonType | "">;
 }
 /**
  * @group Button

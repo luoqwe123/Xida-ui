@@ -1,63 +1,42 @@
-import type { Ref, VNode, ComponentInternalInstance } from "vue"; //VNode: 表示虚拟节点，支持 Vue 的高效渲染。ComponentInternalInstance: 表示组件的内部状态，主要用于 Vue 的内部机制，不常用于用户代码。
+import type { Ref, VNode, ComponentInternalInstance } from "vue";
 
-export const messageTypes = [
-  "info",
-  "success",
-  "warning",
-  "danger",
-  "error",
-] as const;
-export type MessageType = (typeof messageTypes)[number];
+export type MessageType = "primary" | "success" | "warning" | "danger" | "info"
 
-export interface MessageHandler {
-  close(): void;
-}
-
-export type MessageFn = {
-  (props: MessageParams): MessageHandler;
-  closeAll(type?: MessageType): void;
-};
-
-export type MessageTypeFn = (props: MessageParams) => MessageHandler;
-
-export interface Message extends MessageFn {
-  success: MessageTypeFn;
-  warning: MessageTypeFn;
-  info: MessageTypeFn;
-  danger: MessageTypeFn;
-  error: MessageTypeFn;
-}
 
 export interface MessageProps {
-  id: string;
-  message?: string | VNode | (() => VNode);
-  duration?: number;
-  showClose?: boolean;
-  center?: boolean;
-  type?: MessageType;
-  offset?: number;
-  zIndex: number;
-  transitionName?: string;
-  onDestory(): void;
+    id: string;
+    type?: MessageType;
+    content?: string;
+    zIndex: number;
+    showClose?: boolean;
+    offset?: number;  // 顶部偏移量
+    onClose(): void; // 关闭回调
+    duration?: number; // 持续时间
+    transitionName?: string,
+    center?: boolean
 }
 
-export type MessageOptions = Partial<Omit<MessageProps, "id">>;
-export type MessageParams = string | VNode | MessageOptions;
+export interface MessageHandler {
+    close(): void;
+}
+
+export type CreateMessageProps = Omit<    // Omit从一个类型中移除指定的属性，生成新类型  
+    MessageProps,
+    "onClose" | "id" | "zIndex"
+>;
 
 export interface MessageInstance {
-  id: string;
-  vnode: VNode;
-  props: MessageProps;
-  vm: ComponentInternalInstance;
-  handler: MessageHandler;
+    id: string;
+    vnode: VNode;
+    props: MessageProps;
+    vm: ComponentInternalInstance;
+    handler: MessageHandler;
 }
+
 
 export interface MessageCompInstance {
-  close(): void;
-  bottomOffset: Ref<number>;
+    close(): void;
+    bottomOffset: Ref<number>;
 }
-
-export type CreateMessageProps = Omit<
-  MessageProps,
-  "onDestory" | "id" | "zIndex"
->;
+export type MessageOptions = Partial<Omit<MessageProps, "id">>;
+export type MessageParams = string | VNode | MessageOptions;

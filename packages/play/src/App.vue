@@ -1,11 +1,11 @@
 <template>
-  <xida-button size="small" type="primary" :round="true" icon="share" ></xida-button>
+  <xida-button size="small" type="primary" :round="true" @click="abc" >你好</xida-button>
   <xida-button-group>
     <xida-button size="small" type="danger" :round="true">你好</xida-button>
     <xida-button size="small" type="success" :round="true">你好</xida-button>
     <xida-button size="small" type="warning" :round="true">Upload<xida-icon color="black" icon="upload" style="margin-left: 8px" /></xida-button>
   </xida-button-group>
-
+  <button @click="openMessage">nihao</button>
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,20 @@
 import  XidaButton  from "../../components/Button/Button.vue";
 import xidaButtonGroup from "../../components/Button/ButtonGroup.vue"
 import  xidaIcon  from "../../components/Icon/Icon.vue";
+import  { xidaMessage }from "../../components/Message"
 
+
+const openMessage = ()=>{
+ 
+  xidaMessage({
+    content: 'ok',
+    type: "Success"
+  })
+}
+
+function abc(){
+  console.log(111)
+}
 
 </script>
 

@@ -1,6 +1,6 @@
 {
   "name": "@xida-ui/docs",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "private": true,
   "main": "index.js",
   "scripts": {
@@ -13,9 +13,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@vitepress-demo-preview/plugin": "^1.2.3",
     "vitepress": "1.0.0-rc.44",
     "vitepress-api-table": "workspace:*",
-    "vitepress-preview-components": "workspace:*",
-    "@vitepress-demo-preview/plugin": "^1.2.3"
+    "vitepress-preview-components": "workspace:*"
   }
 }

@@ -22,6 +22,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue"],
+  "include": ["packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue", "packages/libs/vitepress-api-table/rollup.config.js"],
   "exclude": ["node_modules", "dist"]
 }

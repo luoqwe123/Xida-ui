@@ -1,11 +1,12 @@
 <template>
-  <xida-button size="small" type="primary" :round="true" @click="abc" >你好</xida-button>
+  <xida-button size="small" type="primary" :round="true"  >你好</xida-button>
   <xida-button-group>
     <xida-button size="small" type="danger" :round="true">你好</xida-button>
     <xida-button size="small" type="success" :round="true">你好</xida-button>
     <xida-button size="small" type="warning" :round="true">Upload<xida-icon color="black" icon="upload" style="margin-left: 8px" /></xida-button>
   </xida-button-group>
   <button @click="openMessage">nihao</button>
+  
 </template>
 
 <script setup lang="ts">
@@ -25,9 +26,7 @@ const openMessage = ()=>{
   })
 }
 
-function abc(){
-  console.log(111)
-}
+
 
 </script>
 

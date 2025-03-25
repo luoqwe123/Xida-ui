@@ -1,4 +1,4 @@
-import  { type Ref,computed, watchEffect } from "vue"
+import  { type Ref,computed, } from "vue"
 
 interface UseOffsetOptions {
     offset:number;

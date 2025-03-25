@@ -8,9 +8,10 @@
       'is-circle': circle,
       'is-disabled': disabled,
       'is-round': round
-    }" @click="() => useThrotle ? handleClickThrottle : handleClick">
+    }" @click="($event:MouseEvent)=>props.useThrotle ? handleClickThrottle($event) : handleClick($event)">
     <template v-if="loading">
-      <slot name="loading" class="loading-icon" :icon="loadingIcon ?? 'spinner'" :style="iconStyle" size="1x" spin>
+      <slot name="loading">
+        <xida-icon  class="loading-icon" :icon="loadingIcon ?? 'spinner'" :style="iconStyle" size="1x" spin></xida-icon>      
       </slot>
     </template>
     <xida-icon v-if="icon && !loading" :icon="icon" :style="iconStyle" size="1x"></xida-icon>
@@ -39,14 +40,18 @@ defineOptions({
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
   nativeType: "button",
-  useThrotle: true,
+  useThrotle: false,
   throttleDuration: 500
 
 });
 const _ref = ref<HTMLButtonElement | null>(null);
 const slots = defineSlots();
 const emits = defineEmits<ButtonEmits>();
-const handleClick = (e: MouseEvent) => emits("click", e);
+const handleClick = (e: MouseEvent) =>{ 
+ 
+ return emits("click", e)
+};
+
 const handleClickThrottle = throttle(handleClick, props.throttleDuration);
 const ctx = inject(BUTTON_GROUP_CTX_KEY, void 0)
 const size = computed(() => ctx?.size ?? props?.size ?? "");

@@ -33,7 +33,7 @@
 import  XidaIcon  from '../Icon/Icon.vue';
 import { defineOptions ,withDefaults,ref, computed, watchEffect,onMounted  } from 'vue';
 import type { MessageCompInstance, MessageProps } from './type';
-import { delay,bind, values } from "lodash-es"
+import { delay,bind, } from "lodash-es"
 import { typeIconName,RenderVnode } from '@xida-ui/utils';
 import { useEventListener,useOffset } from '@xida-ui/hooks';
 import { getLastBottomOffset } from "./method";
@@ -48,7 +48,8 @@ const props = withDefaults(defineProps<MessageProps>(),{
     transitionName: "fade-up",
     duration: 3000,
     offset: 10,
-    showClose:false
+    showClose:false,
+    center:true
 })
 
 const visible = ref(false)

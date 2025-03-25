@@ -1,29 +1,42 @@
 import { defineConfig } from "vite";
-import { readFile } from "fs";
+
 import { resolve } from "path";
 // import { delay, defer } from "lodash-es";
 // import { compression } from "vite-plugin-compression2"; // 文件压缩
 // import { visualizer } from "rollup-plugin-visualizer";  // 生成构建分析图
 
-// import shell from "shelljs";
+import shell from "shelljs";
 import vue from "@vitejs/plugin-vue"; 
-// import { hooksPlugin as hooks } from "@toy-element/vite-plugins";
+import { hooksPlugin as hooks } from "@xida-ui/vite-plugins";
+import { readFile } from "fs";
+import { defer, delay } from "lodash-es";
 // import terser from "@rollup/plugin-terser"; // 代码压缩和混淆
 
-// const TRY_MOVE_STYLES_DELAY = 800 as const;
+const TRY_MOVE_STYLES_DELAY = 800 as const;
 
 // const isProd = process.env.NODE_ENV === "production";
 // const isDev = process.env.NODE_ENV === "development";
 // const isTest = process.env.NODE_ENV === "test";
-// function moveStyles() {
-//   readFile("./dist/umd/index.css.gz", (err) => {
-//     if (err) return delay(moveStyles, TRY_MOVE_STYLES_DELAY);
-//     defer(() => shell.cp("./dist/umd/index.css", "./dist/index.css"));
-//   });
-// }
+function moveStyles() {
+
+  readFile("./dist/umd/index.css", (err) => {
+    if (err){ 
+      console.log("err",err)
+      return delay(moveStyles, TRY_MOVE_STYLES_DELAY)
+    };
+    defer(() => shell.cp("./dist/umd/index.css", "./dist/index.css"));
+  });
+}
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    hooks({  // 用于在构建过程中执行自定义操作
+      rmFiles: ["./dist/umd", "./dist/index.css"],  // 构建前删除的文件或目录
+      afterBuild: moveStyles,  // 构建完成后执行的钩子函数
+    }),
+
+  ],
   build: {
     outDir: "dist/umd",
     lib: {    // 配置库模式构建。
@@ -48,3 +61,5 @@ export default defineConfig({
     },
   },
 });
+
+ 

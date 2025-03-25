@@ -7,7 +7,7 @@ export interface MessageProps {
     id: string;
     type?: MessageType;
     content?: string;
-    zIndex: number;
+    zIndex?: number;
     showClose?: boolean;
     offset?: number;  // 顶部偏移量
     onClose(): void; // 关闭回调

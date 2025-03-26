@@ -47,6 +47,6 @@ Message 组件是一个轻量级的消息提示组件，支持多种类型和配
 | duration       | 显示持续时间 (毫秒)，0 表示不自动关闭 | number                                                    | 3000         |
 | transitionName | 过渡动画名称                          | string                                                    | -            |
 | center         | 内容是否水平居中                      | boolean                                                   | true         |
-                                                       
+
 
 

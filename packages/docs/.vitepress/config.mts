@@ -14,7 +14,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "开始使用", link: "/get-started" },
-      { text: "组件", link: "/components/button" },
+      { text: "组件", link: "/components/Button" },
     ],
     search: {
       provider: "local",
@@ -29,7 +29,7 @@ export default defineConfig({
         text: "基础组件",
         collapsed: false,
         items: [
-          { text: "Button 按钮", link: "components/button" },
+          { text: "Button 按钮", link: "components/Button" },
           { text: "Message 消息", link: "components/Message" },
         ],
       },

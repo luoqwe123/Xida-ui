@@ -33,15 +33,6 @@ importers:
       '@eslint/js':
         specifier: ^9.22.0
         version: 9.22.0
-      '@fortawesome/fontawesome-svg-core':
-        specifier: ^6.7.2
-        version: 6.7.2
-      '@fortawesome/free-solid-svg-icons':
-        specifier: ^6.7.2
-        version: 6.7.2
-      '@fortawesome/vue-fontawesome':
-        specifier: ^3.0.8
-        version: 3.0.8(@fortawesome/fontawesome-svg-core@6.7.2)(vue@3.5.13(typescript@5.7.3))
       '@lerna-lite/cli':
         specifier: ^3.8.0
         version: 3.8.0(@lerna-lite/publish@3.8.0(typescript@5.7.3))(@lerna-lite/version@3.8.0(@lerna-lite/publish@3.8.0(typescript@5.7.3))(typescript@5.7.3))(typescript@5.7.3)
@@ -193,6 +184,15 @@ importers:
 
   packages/components:
     dependencies:
+      '@fortawesome/fontawesome-svg-core':
+        specifier: ^6.7.2
+        version: 6.7.2
+      '@fortawesome/free-solid-svg-icons':
+        specifier: ^6.7.2
+        version: 6.7.2
+      '@fortawesome/vue-fontawesome':
+        specifier: ^3.0.8
+        version: 3.0.8(@fortawesome/fontawesome-svg-core@6.7.2)(vue@3.5.13(typescript@5.8.2))
       '@popperjs/core':
         specifier: 2.11.8
         version: 2.11.8
@@ -220,11 +220,10 @@ importers:
         version: 3.0.8(@types/node@22.13.10)(jsdom@24.0.0)(sass-embedded@1.85.1)(sass@1.77.6)(yaml@2.7.0)
 
   packages/core:
-    dependencies:
+    devDependencies:
       '@xida-ui/components':
         specifier: workspace:*
         version: link:../components
-    devDependencies:
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -7546,10 +7545,10 @@ snapshots:
     dependencies:
       '@fortawesome/fontawesome-common-types': 6.7.2
 
-  '@fortawesome/vue-fontawesome@3.0.8(@fortawesome/fontawesome-svg-core@6.7.2)(vue@3.5.13(typescript@5.7.3))':
+  '@fortawesome/vue-fontawesome@3.0.8(@fortawesome/fontawesome-svg-core@6.7.2)(vue@3.5.13(typescript@5.8.2))':
     dependencies:
       '@fortawesome/fontawesome-svg-core': 6.7.2
-      vue: 3.5.13(typescript@5.7.3)
+      vue: 3.5.13(typescript@5.8.2)
 
   '@humanfs/core@0.19.1': {}
 

@@ -6,7 +6,7 @@ import { filter, map } from "lodash-es";
 
 import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";   // 用于打包后的根据类型进行分包
-import { readdirSync } from "fs";
+import { Dirent, readdirSync } from "fs";
 // import shell from "shelljs";
 // import { hooksPlugin as hooks } from "@xida-ui/vite-plugins";
 // import terser from "@rollup/plugin-terser";
@@ -18,11 +18,11 @@ import { readdirSync } from "fs";
 // const isTest = process.env.NODE_ENV === "test";
 
 function getDirectoriesSync(basePath: string) {
-  const entries = readdirSync(basePath, { withFileTypes: true });
+  const entries: Dirent[] = readdirSync(basePath, { withFileTypes: true });
  
   return map(
-    filter(entries, (entry:any) => entry.isDirectory()),
-    (entry:any) => entry.name
+    filter(entries, (entry:Dirent) => entry.isDirectory()),
+    (entry:Dirent) => entry.name
   );
 }
 
@@ -54,9 +54,9 @@ export default defineConfig({
     rollupOptions: {
       external: [
         "vue",
-        "@fortawesome/fontawesome-svg-core",
-        "@fortawesome/free-solid-svg-icons",
-        "@fortawesome/vue-fontawesome",
+        // "@fortawesome/fontawesome-svg-core",
+        // "@fortawesome/free-solid-svg-icons",
+        // "@fortawesome/vue-fontawesome",
         "@popperjs/core",
         "async-validator",
       ],
